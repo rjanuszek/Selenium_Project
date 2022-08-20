@@ -19,4 +19,7 @@ public class DataForLogin {
     private String additionalInformation;
     private String homePhone;
     private String mobilePhone;
+
+
+
 }

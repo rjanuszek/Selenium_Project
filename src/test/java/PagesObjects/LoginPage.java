@@ -1,5 +1,6 @@
 package PagesObjects;
 
+import MainData.DataForTest;
 import Model.DataForLogin;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -101,13 +102,13 @@ public class LoginPage extends PagesObjects.BasePage {
         passwordInput.sendKeys(message.getPassword());
 
         Select day = new Select(this.dayOfBirthList);
-        day.selectByIndex(26);
+        day.selectByIndex(DataForTest.DAY_OF_BIRTH);
 
         Select month = new Select(this.monthOfBirthList);
-        month.selectByValue("5");
+        month.selectByValue(DataForTest.MONTH_OF_BIRTH);
 
         Select year = new Select(this.yearOfBirthList);
-        year.selectByValue("2000");
+        year.selectByValue(DataForTest.YEAR_OF_BIRTH);
 
         companyInput.sendKeys(message.getCompany());
         addressLineOne.sendKeys(message.getAddressLineOne());
@@ -115,12 +116,12 @@ public class LoginPage extends PagesObjects.BasePage {
         city.sendKeys(message.getCity());
 
         Select state = new Select(this.stateListInput);
-        state.selectByIndex(10);
+        state.selectByIndex(DataForTest.STATE);
 
         postalCode.sendKeys(message.getPostalCode());
 
         Select country = new Select(this.countryListInput);
-        country.selectByIndex(1);
+        country.selectByIndex(DataForTest.COUNTRY);
 
         additionalInformation.sendKeys(message.getAdditionalInformation());
         homePhone.sendKeys(message.getHomePhone());

@@ -50,7 +50,7 @@ public class ContactUsFormPage extends PagesObjects.BasePage {
         emailElement.sendKeys(email);
     }
 
-    public void sendContactUsForm(Message message) {
+    public void sendContactUsForm() {
         Select subject = new Select(subjectHeading);
         subject.selectByVisibleText(message.getSubjectHeading().getValue());
 

@@ -7,11 +7,8 @@ import org.openqa.selenium.support.FindBy;
 
 public class SignInPage extends PagesObjects.BasePage {
 
-    private Faker faker;
-
     public SignInPage(WebDriver driver) {
         super(driver);
-        faker = new Faker();
     }
 
     @FindBy(id = "email_create")

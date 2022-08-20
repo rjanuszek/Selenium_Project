@@ -6,6 +6,7 @@ import Model.Message;
 import PagesObjects.ContactUsFormPage;
 import PagesObjects.TopMenuPage;
 import org.junit.jupiter.api.*;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -16,6 +17,7 @@ public class ContactUsTest extends PagesTests.BaseTest {
 
     private TopMenuPage topMenuPage;
     private ContactUsFormPage contactUsFormPage;
+    private Message message;
 
     @BeforeEach
     public void setUpTest() {
@@ -25,6 +27,7 @@ public class ContactUsTest extends PagesTests.BaseTest {
 
         topMenuPage = new TopMenuPage(driver);
         contactUsFormPage = new ContactUsFormPage(driver);
+        message = new Message();
     }
 
     @Test
@@ -34,20 +37,20 @@ public class ContactUsTest extends PagesTests.BaseTest {
         contactUsFormPage.clickOnSendButton();
 
         assertThat(contactUsFormPage.isRedAlertBoxDisplayed()).isTrue();
-        assertThat(contactUsFormPage.redBoxText()).contains(PageUtils.ERROR_TEXT);
+        assertThat(contactUsFormPage.redBoxText()).contains(PageUtils.ERROR_TEXT_FOR_EMPTY_CONTACT_US_FORM);
     }
 
     @Test
     @Order(2)
     public void shouldSendContactUsFormWithValidData() {
         topMenuPage.clinkOnContactUsLink();
-        Message message = new Message();
-        message.setSubjectHeading(SubjectHeading.CUSTOMER_SERVICE);
-        message.setEmailAddress("test@wp.pl");
-        message.setOrderReference("111");
-        message.setTextMessage("Test formularza");
-
-        contactUsFormPage.sendContactUsForm(message);
+//        Message message = new Message();
+//        message.setSubjectHeading(SubjectHeading.CUSTOMER_SERVICE);
+//        message.setEmailAddress("test@wp.pl");
+//        message.setOrderReference("111");
+//        message.setTextMessage("Test formularza");
+        message.setUpDataForMessage();
+        contactUsFormPage.sendContactUsForm();
         assertThat(contactUsFormPage.isGreenAlertBoxDisplayed()).isTrue();
     }
 }
