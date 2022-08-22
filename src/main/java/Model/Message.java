@@ -12,11 +12,4 @@ public class Message {
     public String orderReference;
     public String textMessage;
 
-    public static void setUpDataForMessage() {
-        Message data = new Message();
-        data.setSubjectHeading(SubjectHeading.CUSTOMER_SERVICE);
-        data.setEmailAddress(DataForTest.ADDRESS_EMAIL);
-        data.setOrderReference(DataForTest.ORDER_NUMBER);
-        data.setTextMessage(DataForTest.TEXT_MESSAGE);
-    }
 }

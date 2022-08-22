@@ -44,13 +44,12 @@ public class ContactUsTest extends PagesTests.BaseTest {
     @Order(2)
     public void shouldSendContactUsFormWithValidData() {
         topMenuPage.clinkOnContactUsLink();
-//        Message message = new Message();
-//        message.setSubjectHeading(SubjectHeading.CUSTOMER_SERVICE);
-//        message.setEmailAddress("test@wp.pl");
-//        message.setOrderReference("111");
-//        message.setTextMessage("Test formularza");
-        message.setUpDataForMessage();
-        contactUsFormPage.sendContactUsForm();
+        Message message = new Message();
+        message.setSubjectHeading(SubjectHeading.CUSTOMER_SERVICE);
+        message.setEmailAddress("test@wp.pl");
+        message.setOrderReference("111");
+        message.setTextMessage("Test formularza");
+        contactUsFormPage.sendContactUsForm(message);
         assertThat(contactUsFormPage.isGreenAlertBoxDisplayed()).isTrue();
     }
 }
