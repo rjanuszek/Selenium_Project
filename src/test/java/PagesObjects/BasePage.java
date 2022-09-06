@@ -15,13 +15,11 @@ public class BasePage {
 
     protected WebDriverWait wait;
     protected Faker faker;
-    protected Message message;
 
     public BasePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         faker = new Faker();
-        message = new Message();
     }
 
     protected boolean isAlertBoxDisplayed(WebElement box) {
